@@ -4,31 +4,33 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #121212;
     color: #eee;
-  }
-  
-  h1, h2 {
+}
+
+h1,
+h2 {
     color: #b37dff;
-  }
-  
-  /* === CONTAINER === */
-  .container {
-    margin-left: 200px; /* für linke Menüleiste */
+}
+
+/* === CONTAINER === */
+.container {
+    margin-left: 200px;
+    /* für linke Menüleiste */
     padding: 2rem 3rem;
     max-width: 1600px;
     width: calc(100% - 220px);
     box-sizing: border-box;
-  }
-  
-  @media (max-width: 800px) {
+}
+
+@media (max-width: 800px) {
     .container {
-      padding: 1rem;
-      margin-left: 180px;
-      width: auto;
+        padding: 1rem;
+        margin-left: 180px;
+        width: auto;
     }
-  }
-  
-  /* === MENU LEISTE === */
-  .menu-bar {
+}
+
+/* === MENU LEISTE === */
+.menu-bar {
     position: fixed;
     left: 0;
     top: 0;
@@ -41,9 +43,9 @@ body {
     padding: 1rem 0;
     border-right: 1px solid #333;
     z-index: 1000;
-  }
-  
-  .menu-bar button {
+}
+
+.menu-bar button {
     all: unset;
     cursor: pointer;
     background: #252529;
@@ -54,20 +56,27 @@ body {
     margin: 4px 12px;
     border-radius: 8px;
     transition: background 0.2s ease;
-  }
-  
-  .menu-bar button:hover {
+}
+
+.menu-bar button:hover {
     background: #35353a;
     color: #fff;
-  }
-  
-  .menu-bar button.active {
+}
+
+.menu-bar button.active {
     background: #7b61ff;
     color: white;
-  }
-  
-  /* === FORMULARE === */
-  input, select, textarea, button {
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* === FORMULARE === */
+input,
+select,
+textarea,
+button {
     font-family: inherit;
     font-size: 16px;
     padding: 0.6rem 1rem;
@@ -78,37 +87,45 @@ body {
     color: #eee;
     box-sizing: border-box;
     width: 100%;
-  }
-  
-  input:focus, select:focus, textarea:focus {
+    display: block;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: #b37dff;
-  }
-  
-  button {
+}
+
+button {
     background-color: #7b61ff;
     color: white;
     border: none;
     cursor: pointer;
     width: auto;
     transition: background 0.2s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #9d8dff;
-  }
-  
-  /* === TABELLE === */
-  table {
+}
+
+/* === TABELLE === */
+table {
     width: 100%;
     border-collapse: collapse;
     background-color: #1e1e22;
     color: #eee;
     margin-top: 2rem;
     font-size: 15px;
-  }
-  
-  th, td {
+}
+
+th,
+td {
     border: 1px solid #333;
     padding: 0.8rem 1rem;
     text-align: left;
@@ -116,41 +133,47 @@ body {
     max-width: 300px;
     word-break: break-word;
     white-space: normal;
-  }
-  
-  th {
+}
+
+th {
     background-color: #2a2a2f;
     color: #b37dff;
     font-weight: bold;
-  }
-  
-  tbody tr:hover {
+}
+
+tbody tr:hover {
     background-color: #292929;
-  }
-  
-  /* Optional: bestimmte Spalten breiter machen */
-  td:nth-child(6), /* Kommentar */
-  td:nth-child(7)  /* E-Mail */
-  {
+}
+
+/* Optional: bestimmte Spalten breiter machen */
+td:nth-child(6),
+/* Kommentar */
+td:nth-child(7)
+
+/* E-Mail */
+    {
     max-width: 400px;
-  }
-  
-  /* === FEHLERMELDUNGEN === */
-  #error, #login-error {
+}
+
+/* === FEHLERMELDUNGEN === */
+#error,
+#login-error {
     color: #ff6464;
     margin-top: 0.5rem;
-  }
+}
 
-  
-  .content-box {
+
+.content-box {
     background-color: #1c1c1f;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(179, 125, 255, 0.2);
-    margin: 2rem auto;          /* zentriert horizontal */
+    margin: 2rem auto;
+    /* zentriert horizontal */
     border: 1px solid #2a2a2a;
     max-width: 40%;
-    width: 40%;                /* bei kleineren Screens voll nutzen */
+    width: 40%;
+    /* bei kleineren Screens voll nutzen */
     box-sizing: border-box;
     align-items: center;
-  }
+}
