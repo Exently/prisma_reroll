@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reroll</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="menu-container"></div>
+
+    <script>
+        fetch("menu.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("menu-container").innerHTML = html;
+                const script = document.createElement("script");
+                script.src = "scripts/menu.js";
+                document.body.appendChild(script);
+            });
+    </script>
+
+    <div class="content-box">
+        <h1>Reroll Ankündigung</h1>
+        <form id="player-form">
+            <input type="email" id="email" placeholder="E-Mail" required autocomplete="email" />
+            <input type="text" id="name" placeholder="Spielername" required autocomplete="off" />
+            <input type="text" id="class_now" placeholder="Aktuelle Klasse" required autocomplete="off" />
+            <input type="text" id="class_reroll" placeholder="Reroll-Klasse" required autocomplete="off" />
+            <input type="text" id="main_spec" placeholder="Main Spec" required autocomplete="off" />
+            <input type="text" id="second_spec" placeholder="Secondary Spec" autocomplete="off" />
+            <textarea id="comment" placeholder="Kommentar" autocomplete="off"></textarea>
+            <button type="submit">Eintragen</button>
+        </form>
+        <div id="status"></div>
+    </div>
+
+    <script type="module" src="scripts/script.js"></script>
+</body>
+
+</html>

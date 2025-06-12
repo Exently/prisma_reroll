@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Reroll Übersicht</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="menu-container"></div>
+    <script>
+        fetch("menu.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("menu-container").innerHTML = html;
+                const script = document.createElement("script");
+                script.src = "scripts/menu.js";
+                document.body.appendChild(script);
+            });
+    </script>
+    <div class="container">
+        <h1>Reroll Übersicht</h1>
+        <table id="players-table">
+            <thead>
+                <tr>
+                    <th>Spieler</th>
+                    <th>Aktuelle Klasse</th>
+                    <th>Reroll</th>
+                    <th>Main Spec</th>
+                    <th>Second Spec</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script type="module" src="scripts/overview.js"></script>
+</body>
+
+</html>

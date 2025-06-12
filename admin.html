@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Adminbereich</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="menu-container"></div>
+
+  <main class="container">
+    <h1>Admin: Einträge verwalten</h1>
+
+    <div id="login-form">
+      <input type="email" id="admin-email" placeholder="E-Mail" required>
+      <input type="password" id="admin-password" placeholder="Passwort" required>
+      <button onclick="adminLogin()">Login</button>
+      <div id="login-error"></div>
+    </div>
+
+    <div id="admin-section" style="display:none;">
+      <table id="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Klasse</th>
+            <th>Reroll</th>
+            <th>Main</th>
+            <th>Second</th>
+            <th>Kommentar</th>
+            <th>Löschen</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    fetch("menu.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("menu-container").innerHTML = html;
+        const script = document.createElement("script");
+        script.src = "scripts/menu.js";
+        document.body.appendChild(script);
+      });
+  </script>
+
+  <script type="module" src="scripts/admin.js"></script>
+</body>
+</html>
