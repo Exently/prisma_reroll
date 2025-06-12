@@ -27,10 +27,57 @@
         <form id="player-form">
             <input type="email" id="email" placeholder="E-Mail" required autocomplete="email" />
             <input type="text" id="name" placeholder="Spielername" required autocomplete="off" />
-            <input type="text" id="class_now" placeholder="Aktuelle Klasse" required autocomplete="off" />
-            <input type="text" id="class_reroll" placeholder="Reroll-Klasse" required autocomplete="off" />
-            <input type="text" id="main_spec" placeholder="Main Spec" required autocomplete="off" />
-            <input type="text" id="second_spec" placeholder="Secondary Spec" autocomplete="off" />
+            <label for="class_now">Aktuelle Klasse</label>
+            <select id="class_now" name="class_current" required>
+                <option value="">– Bitte wählen –</option>
+                <option value="Krieger">Krieger</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Jäger">Jäger</option>
+                <option value="Schurke">Schurke</option>
+                <option value="Priester">Priester</option>
+                <option value="Todesritter">Todesritter</option>
+                <option value="Schamane">Schamane</option>
+                <option value="Magier">Magier</option>
+                <option value="Hexenmeister">Hexenmeister</option>
+                <option value="Mönch">Mönch</option>
+                <option value="Druide">Druide</option>
+                <option value="Dämonenjäger">Dämonenjäger</option>
+                <option value="Rufer">Rufer</option>
+            </select>
+
+            <label for="class_reroll">Reroll Klasse</label>
+            <select id="class_reroll" name="class_reroll">
+                <option value="">– keine –</option>
+                <option value="Krieger">Krieger</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Jäger">Jäger</option>
+                <option value="Schurke">Schurke</option>
+                <option value="Priester">Priester</option>
+                <option value="Todesritter">Todesritter</option>
+                <option value="Schamane">Schamane</option>
+                <option value="Magier">Magier</option>
+                <option value="Hexenmeister">Hexenmeister</option>
+                <option value="Mönch">Mönch</option>
+                <option value="Druide">Druide</option>
+                <option value="Dämonenjäger">Dämonenjäger</option>
+                <option value="Rufer">Rufer</option>
+            </select>
+
+            <label for="main_spec">Main Spec</label>
+            <select id="main_spec" name="main_spec" required>
+                <option value="">– Bitte wählen –</option>
+                <option value="DD">DD</option>
+                <option value="HEAL">HEAL</option>
+                <option value="TANK">TANK</option>
+            </select>
+
+            <label for="second_spec">Second Spec</label>
+            <select id="second_spec" name="second_spec">
+                <option value="">– keinen –</option>
+                <option value="DD">DD</option>
+                <option value="HEAL">HEAL</option>
+                <option value="TANK">TANK</option>
+            </select>
             <textarea id="comment" placeholder="Kommentar" autocomplete="off"></textarea>
             <button type="submit">Eintragen</button>
         </form>
