@@ -10,10 +10,15 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Mobile menu toggle
+    // Mobile menu toggle with smooth animation
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
-        document.querySelector('.mobile-menu').classList.toggle('active');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        mobileMenu.classList.toggle('active');
+        
+        // Toggle the icon animation
+        const svg = menuToggle.querySelector('svg');
+        svg.classList.toggle('rotate-90');
     });
 
     // Close menu when clicking outside
@@ -21,6 +26,8 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!menuBar.contains(e.target) && !menuToggle.contains(e.target)) {
             menuBar.classList.remove('active');
             menuToggle.classList.remove('active');
+            document.querySelector('.mobile-menu').classList.remove('active');
+            menuToggle.querySelector('svg').classList.remove('rotate-90');
         }
     });
 });
