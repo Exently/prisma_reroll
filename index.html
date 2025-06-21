@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./assets/prisma-icon.ico">
     <title>Rollenabfrage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="bg-gray-950 text-gray-100">
     <div id="menu-container"></div>
 
     <script>
@@ -23,67 +24,93 @@
             });
     </script>
 
-    <div class="content-box">
-        <h1>Rollenabfrage</h1>
-        <form id="player-form">
-            <input type="email" id="email" placeholder="E-Mail" required autocomplete="email" />
-            <input type="text" id="name" placeholder="Spielername" required autocomplete="off" />
-            <label for="class_now">Aktuelle Klasse</label>
-            <select id="class_now" name="class_current" required>
-                <option value="">– Bitte wählen –</option>
-                <option value="Krieger">Krieger</option>
-                <option value="Paladin">Paladin</option>
-                <option value="Jäger">Jäger</option>
-                <option value="Schurke">Schurke</option>
-                <option value="Priester">Priester</option>
-                <option value="Todesritter">Todesritter</option>
-                <option value="Schamane">Schamane</option>
-                <option value="Magier">Magier</option>
-                <option value="Hexenmeister">Hexenmeister</option>
-                <option value="Mönch">Mönch</option>
-                <option value="Druide">Druide</option>
-                <option value="Dämonenjäger">Dämonenjäger</option>
-                <option value="Rufer">Rufer</option>
-            </select>
+    <div class="content-box max-w-xl mx-auto mt-8 bg-gray-900 rounded-xl shadow-2xl p-8 m-4">
+        <div class="space-y-8">
+            <h1 class="text-3xl font-bold text-purple-400 text-center">Rollenabfrage</h1>
+            <form id="player-form" class="space-y-6 px-4">
+                <input type="email" id="email" placeholder="E-Mail" required autocomplete="email"
+                    class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+                <div class="relative">
+                    <input type="text" id="name" placeholder="Spielername" required autocomplete="off" maxlength="20"
+                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" />
+                    <div id="charCount" class="absolute right-2 top-3 text-sm text-gray-400"></div>
+                </div>
 
-            <label for="class_reroll">Reroll Klasse</label>
-            <select id="class_reroll" name="class_reroll">
-                <option value="">– keine –</option>
-                <option value="Krieger">Krieger</option>
-                <option value="Paladin">Paladin</option>
-                <option value="Jäger">Jäger</option>
-                <option value="Schurke">Schurke</option>
-                <option value="Priester">Priester</option>
-                <option value="Todesritter">Todesritter</option>
-                <option value="Schamane">Schamane</option>
-                <option value="Magier">Magier</option>
-                <option value="Hexenmeister">Hexenmeister</option>
-                <option value="Mönch">Mönch</option>
-                <option value="Druide">Druide</option>
-                <option value="Dämonenjäger">Dämonenjäger</option>
-                <option value="Rufer">Rufer</option>
-                <option value="Fill">Fill</option>
-            </select>
+                <div class="space-y-2">
+                    <label for="class_now" class="block text-sm font-medium text-gray-300">Aktuelle Klasse</label>
+                    <select id="class_now" name="class_current" required
+                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                        <option value="">– Bitte wählen –</option>
+                        <option value="Krieger">Krieger</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Jäger">Jäger</option>
+                        <option value="Schurke">Schurke</option>
+                        <option value="Priester">Priester</option>
+                        <option value="Todesritter">Todesritter</option>
+                        <option value="Schamane">Schamane</option>
+                        <option value="Magier">Magier</option>
+                        <option value="Hexenmeister">Hexenmeister</option>
+                        <option value="Mönch">Mönch</option>
+                        <option value="Druide">Druide</option>
+                        <option value="Dämonenjäger">Dämonenjäger</option>
+                        <option value="Rufer">Rufer</option>
+                    </select>
+                </div>
 
-            <label for="main_spec">Main Spec</label>
-            <select id="main_spec" name="main_spec" required>
-                <option value="">– Bitte wählen –</option>
-                <option value="DD">DD</option>
-                <option value="HEAL">HEAL</option>
-                <option value="TANK">TANK</option>
-            </select>
+                <div class="space-y-2">
+                    <label for="class_reroll" class="block text-sm font-medium text-gray-300">Reroll Klasse</label>
+                    <select id="class_reroll" name="class_reroll"
+                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                        <option value="">– keine –</option>
+                        <option value="Krieger">Krieger</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Jäger">Jäger</option>
+                        <option value="Schurke">Schurke</option>
+                        <option value="Priester">Priester</option>
+                        <option value="Todesritter">Todesritter</option>
+                        <option value="Schamane">Schamane</option>
+                        <option value="Magier">Magier</option>
+                        <option value="Hexenmeister">Hexenmeister</option>
+                        <option value="Mönch">Mönch</option>
+                        <option value="Druide">Druide</option>
+                        <option value="Dämonenjäger">Dämonenjäger</option>
+                        <option value="Rufer">Rufer</option>
+                        <option value="Fill">Fill</option>
+                    </select>
+                </div>
 
-            <label for="second_spec">Second Spec</label>
-            <select id="second_spec" name="second_spec">
-                <option value="">– keinen –</option>
-                <option value="DD">DD</option>
-                <option value="HEAL">HEAL</option>
-                <option value="TANK">TANK</option>
-            </select>
-            <textarea id="comment" placeholder="Kommentar" autocomplete="off"></textarea>
-            <button type="submit">Eintragen</button>
-        </form>
-        <div id="status"></div>
+                <div class="space-y-2">
+                    <label for="main_spec" class="block text-sm font-medium text-gray-300">Main Spec</label>
+                    <select id="main_spec" name="main_spec" required
+                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                        <option value="">– Bitte wählen –</option>
+                        <option value="DD">DD</option>
+                        <option value="HEAL">HEAL</option>
+                        <option value="TANK">TANK</option>
+                    </select>
+                </div>
+
+                <div class="space-y-2">
+                    <label for="second_spec" class="block text-sm font-medium text-gray-300">Second Spec</label>
+                    <select id="second_spec" name="second_spec"
+                        class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                        <option value="">– keinen –</option>
+                        <option value="DD">DD</option>
+                        <option value="HEAL">HEAL</option>
+                        <option value="TANK">TANK</option>
+                    </select>
+                </div>
+
+                <textarea id="comment" placeholder="Kommentar" autocomplete="off"
+                    class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 min-h-[100px]"></textarea>
+
+                <button type="submit"
+                    class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 transform hover:scale-[1.02]">
+                    Eintragen
+                </button>
+            </form>
+            <div id="status" class="mt-4 text-center"></div>
+        </div>
     </div>
 
     <script type="module" src="scripts/script.js"></script>

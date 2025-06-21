@@ -13,12 +13,13 @@ if (error) {
   const tbody = document.querySelector('#players-table tbody');
   data.forEach(player => {
     const row = document.createElement('tr');
+    row.className = 'hover:bg-gray-800/50 transition-colors';
     row.innerHTML = `
-      <td>${player.player_name}</td>
-      <td>${player.class_now}</td>
-      <td>${player.class_reroll}</td>
-      <td>${player.main_spec}</td>
-      <td>${player.second_spec || '-'}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-gray-200">${player.player_name}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-gray-200">${player.class_now}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-gray-300">${player.class_reroll || '-'}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-gray-200">${player.main_spec}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-gray-300">${player.second_spec || '-'}</td>
     `;
     tbody.appendChild(row);
   });

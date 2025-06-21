@@ -23,7 +23,10 @@ async function loadEntries() {
     const session = await supabase.auth.getSession();
     if (!session.data.session) return;
 
-    const { data, error } = await supabase.from('player').select('id, player_name, class_now, class_reroll, main_spec, second_spec, comment, created_at');
+    const { data, error } = await supabase
+        .from('player')
+        .select('id, player_name, class_now, class_reroll, main_spec, second_spec, comment, created_at');
+    
     if (error) {
         alert('Fehler beim Laden der Daten');
         return;
@@ -35,20 +38,29 @@ async function loadEntries() {
 
     data.forEach(entry => {
         const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/50 transition-colors';
+        const truncatedName = entry.player_name.length > 20 
+            ? entry.player_name.substring(0, 20) + '...' 
+            : entry.player_name;
         tr.innerHTML = `
-      <td>${entry.player_name}</td>
-      <td>${entry.class_now}</td>
-      <td>${entry.class_reroll}</td>
-      <td>${entry.main_spec}</td>
-      <td>${entry.second_spec || '-'}</td>
-      <td>${entry.comment || '-'}</td>
-      <td><button onclick="deleteEntry(${entry.id})">🗑️</button></td>
-    `;
+            <td class="px-6 py-4 whitespace-nowrap text-gray-200" title="${entry.player_name}">${truncatedName}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-200">${entry.class_now}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300">${entry.class_reroll || '-'}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-200">${entry.main_spec}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300">${entry.second_spec || '-'}</td>
+            <td class="px-6 py-4 break-words text-gray-300">${entry.comment || '-'}</td>
+            <td class="px-6 py-4">
+                <button onclick="deleteEntry(${entry.id})" 
+                        class="text-red-400 hover:text-red-300 transition-colors p-2 rounded-lg hover:bg-red-400/10">
+                    🗑️
+                </button>
+            </td>
+        `;
         tbody.appendChild(tr);
     });
 }
 
-window.deleteEntry = async function (id) {
+window.deleteEntry = async function(id) {
     const confirmDelete = confirm("Eintrag wirklich löschen?");
     if (!confirmDelete) return;
 

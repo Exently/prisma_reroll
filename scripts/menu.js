@@ -12,8 +12,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
-        menuBar.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        document.querySelector('.mobile-menu').classList.toggle('active');
     });
 
     // Close menu when clicking outside

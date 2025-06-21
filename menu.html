@@ -1,40 +1,67 @@
-<div class="mobile-menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<div class="menu-bar">
-    <button onclick="location.href='index.html'" data-match="index" style="
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: left;
-                                                                gap: 6px;
-                                                                padding: 8px 12px;
-">
-        <img src="assets/home.ico" alt="Home Icon" style="width: 32px; height: 32px;">
-        Start
-    </button>
-    <button onclick="location.href='overview.html'" data-match="overview" style="
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: left;
-                                                                gap: 6px;
-                                                                padding: 8px 12px;
-">
-        <img src="assets/overview.ico" alt="overview Icon" style="width: 32px; height: 32px;">
-        Übersicht
-    </button>
-    <button onclick="location.href='admin.html'" data-match="admin" style="
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: left;
-                                                                gap: 6px;
-                                                                padding: 8px 12px;
-">
-        <img src="assets/admin.ico" alt="Admin Icon" style="width: 32px; height: 32px;">
-        Admin
-    </button>
-</div>
+<!-- Mobile Menu Toggle Button -->
+<button class="lg:hidden fixed top-4 right-4 z-50 p-2 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors mobile-menu-toggle">
+    <span class="block w-6 h-0.5 bg-purple-400 mb-1.5"></span>
+    <span class="block w-6 h-0.5 bg-purple-400 mb-1.5"></span>
+    <span class="block w-6 h-0.5 bg-purple-400"></span>
+</button>
+
+<!-- Navigation Bar -->
+<nav class="menu-bar fixed top-0 left-0 w-full bg-gray-900 shadow-lg z-40">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-8 items-center w-full justify-center">
+                <button onclick="location.href='index.html'" data-match="index"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                    <img src="assets/home.ico" alt="Home Icon" 
+                         class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                    <span class="font-medium">Start</span>
+                </button>
+                
+                <button onclick="location.href='overview.html'" data-match="overview"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                    <img src="assets/overview.ico" alt="Overview Icon" 
+                         class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                    <span class="font-medium">Übersicht</span>
+                </button>
+                
+                <button onclick="location.href='admin.html'" data-match="admin"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                    <img src="assets/admin.ico" alt="Admin Icon" 
+                         class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                    <span class="font-medium">Admin</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="lg:hidden mobile-menu fixed top-16 left-0 w-full bg-gray-900 transform -translate-y-full transition-transform duration-200 ease-in-out">
+        <div class="px-4 py-2 space-y-2">
+            <button onclick="location.href='index.html'" data-match="index"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                <img src="assets/home.ico" alt="Home Icon" 
+                     class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                <span class="font-medium">Start</span>
+            </button>
+            
+            <button onclick="location.href='overview.html'" data-match="overview"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                <img src="assets/overview.ico" alt="Overview Icon" 
+                     class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                <span class="font-medium">Übersicht</span>
+            </button>
+            
+            <button onclick="location.href='admin.html'" data-match="admin"
+                    class="w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 group">
+                <img src="assets/admin.ico" alt="Admin Icon" 
+                     class="w-5 h-5 transition-transform duration-200 group-hover:scale-110">
+                <span class="font-medium">Admin</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
 <style>
 .mobile-menu-toggle {
     display: none;
@@ -44,7 +71,7 @@
     height: 25px;
     position: fixed;
     top: 15px;
-    left: 15px;
+    right: 15px;
     z-index: 1001;
     cursor: pointer;
 }
@@ -69,9 +96,13 @@
     transform: translateY(-11px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .mobile-menu.active {
+        transform: translateY(0);
     }
 }
 </style>
