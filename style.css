@@ -1,32 +1,40 @@
 /* === GLOBAL === */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #121212;
-    color: #eee;
+:root {
+    --primary-color: #b37dff;
+    --primary-hover: #9d8dff;
+    --bg-dark: #121212;
+    --bg-darker: #1a1a1d;
+    --bg-light: #1f1f1f;
+    --border-color: #333;
+    --text-light: #eee;
 }
 
-h1,
-h2 {
-    color: #b37dff;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 /* === CONTAINER === */
 .container {
-    margin-left: 200px;
-    /* für linke Menüleiste */
-    padding: 2rem 3rem;
-    max-width: 1600px;
-    width: calc(100% - 220px);
-    box-sizing: border-box;
-}
-
-@media (max-width: 800px) {
-    .container {
-        padding: 1rem;
-        margin-left: 180px;
-        width: auto;
-    }
+    margin-left: 180px;
+    padding: 2rem;
+    max-width: 1200px;
+    width: calc(100% - 180px);
+    transition: margin-left 0.3s ease;
 }
 
 /* === MENU LEISTE === */
@@ -36,144 +44,195 @@ h2 {
     top: 0;
     width: 180px;
     height: 100%;
-    background: #1a1a1d;
+    background: var(--bg-darker);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     padding: 1rem 0;
-    border-right: 1px solid #333;
+    border-right: 1px solid var(--border-color);
     z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 .menu-bar button {
     all: unset;
     cursor: pointer;
-    background: #252529;
-    color: #b37dff;
-    padding: 1rem;
-    text-align: left;
-    font-size: 16px;
-    margin: 4px 12px;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 0.8rem 1rem;
+    margin: 0.25rem 0.75rem;
     border-radius: 8px;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .menu-bar button:hover {
-    background: #35353a;
-    color: #fff;
+    background: var(--primary-color);
+    color: white;
+    transform: translateX(3px);
 }
 
 .menu-bar button.active {
-    background: #7b61ff;
+    background: var(--primary-color);
     color: white;
 }
 
-* {
-    box-sizing: border-box;
+.menu-bar button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
 }
 
-/* === FORMULARE === */
+.menu-bar button:hover img {
+    transform: scale(1.1);
+}
+
+/* === FORMS === */
 input,
 select,
 textarea,
 button {
     font-family: inherit;
-    font-size: 16px;
-    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
     margin: 0.5rem 0;
     border-radius: 8px;
-    border: 1px solid #444;
-    background-color: #1f1f1f;
-    color: #eee;
-    box-sizing: border-box;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-light);
+    color: var(--text-light);
     width: 100%;
-    display: block;
+    transition: all 0.2s ease;
 }
 
 textarea {
-    resize: none;
+    resize: vertical;
+    min-height: 100px;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #b37dff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(179, 125, 255, 0.1);
 }
 
 button {
-    background-color: #7b61ff;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: 600;
     width: auto;
-    transition: background 0.2s ease;
+    min-width: 120px;
 }
 
 button:hover {
-    background-color: #9d8dff;
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
-/* === TABELLE === */
+button:active {
+    transform: translateY(0);
+}
+
+/* === TABLE === */
 table {
     width: 100%;
-    border-collapse: collapse;
-    background-color: #1e1e22;
-    color: #eee;
-    margin-top: 2rem;
-    font-size: 15px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-darker);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
-    border: 1px solid #333;
-    padding: 0.8rem 1rem;
+th, td {
+    padding: 1rem;
     text-align: left;
-    vertical-align: top;
-    max-width: 300px;
-    word-break: break-word;
-    white-space: normal;
+    border-bottom: 1px solid var(--border-color);
 }
 
 th {
-    background-color: #2a2a2f;
-    color: #b37dff;
-    font-weight: bold;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+td {
+    vertical-align: middle;
 }
 
 tbody tr:hover {
-    background-color: #292929;
+    background-color: rgba(179, 125, 255, 0.05);
 }
 
-/* Optional: bestimmte Spalten breiter machen */
-td:nth-child(6),
-/* Kommentar */
-td:nth-child(7)
-
-/* E-Mail */
-    {
-    max-width: 400px;
+/* === CONTENT BOX === */
+.content-box {
+    background-color: var(--bg-darker);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 90%;
+    border: 1px solid var(--border-color);
 }
 
-/* === FEHLERMELDUNGEN === */
+/* === ERROR MESSAGES === */
 #error,
 #login-error {
     color: #ff6464;
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(255, 100, 100, 0.1);
 }
 
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+    .menu-bar {
+        transform: translateX(-180px);
+    }
+    
+    .menu-bar.active {
+        transform: translateX(0);
+    }
+    
+    .container {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .content-box {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th, td {
+        padding: 0.75rem;
+    }
+    
+    input, select, textarea, button {
+        font-size: 16px; /* Prevents zoom on mobile */
+    }
+}
 
-.content-box {
-    background-color: #1c1c1f;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(179, 125, 255, 0.2);
-    margin: 2rem auto;
-    /* zentriert horizontal */
-    border: 1px solid #2a2a2a;
-    max-width: 40%;
-    width: 40%;
-    /* bei kleineren Screens voll nutzen */
-    box-sizing: border-box;
-    align-items: center;
+/* === STATUS MESSAGES === */
+#status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(179, 125, 255, 0.1);
+    text-align: center;
 }
